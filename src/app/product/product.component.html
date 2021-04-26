@@ -1,4 +1,4 @@
-<div class="card card-body mt-3">
+<!-- <div class="card card-body mt-3">
     <div class="media align-items-center align-items-lg-start text-center text-lg-left flex-column flex-lg-row">
         <div class="mr-2 mb-3 mb-lg-0"> <img src={{product?.path}} width="50" height="50" alt=""> </div>
         <div class="media-body">
@@ -15,4 +15,51 @@
             <button type="button" (click)="removeproduct(product?.id)"  class="btn btn-danger mt-4 text-white"><i class="icon-cart-add mr-2"></i> Delete Product</button>
         </div>
     </div>
-</div>
+</div> -->
+<!-- <tr>
+    <td>
+        <div class="user-info">
+            <div class="user-info__img">
+                <img src={{product?.path}}>
+            </div>
+            <div class="user-info__basic">
+                <h5 class="mb-0">{{product?.name}}</h5>
+                <p class="text-muted mb-0">{{product?.name}}</p>
+            </div>
+        </div>
+    </td>
+    
+    <td>{{product?.description}} </td>
+    <td>{{product?.publicPrice}} DT</td>
+    <td>
+        <button type="button" (click)="removeproduct(product?.id)"  class="btn btn-danger  text-white"><i class="icon-cart-add mr-2"></i> Delete Product</button>
+    </td>
+    <td>
+        <div class="dropdown open">
+            <a href="#!" class="px-2" id="triggerId1" data-toggle="dropdown" aria-haspopup="true"
+                    aria-expanded="false">
+                        <i class="fa fa-ellipsis-v"></i>
+            </a>
+            <div class="dropdown-menu" aria-labelledby="triggerId1">
+                <a class="dropdown-item" href="#"><i class="fa fa-pencil mr-1"></i> Edit</a>
+                <a class="dropdown-item text-danger" href="#"><i class="fa fa-trash mr-1"></i> Delete</a>
+            </div>
+        </div>
+    </td>
+</tr>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script> -->
+<tr>
+    <td>1</td>
+    <td><a href="#"><img src={{product?.path}} class="avatar" alt="Avatar"> Michael Holz</a></td>
+    <td>04/10/2013</td>                        
+    <td>Admin</td>
+    <td>{{product?.description}} </td>
+    <td>{{product?.publicPrice}} DT</td>
+    <td>
+        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
+        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
+    </td>
+</tr>
