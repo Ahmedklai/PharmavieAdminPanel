@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { NgForm } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ProductService } from '../product-list/product-service.service';
 
 @Component({
   selector: 'app-form',
@@ -7,13 +10,24 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FormComponent implements OnInit {
 
-  constructor() { }
+  constructor(
+   private productService: ProductService ,
+   private router: Router 
+  ) { }
 
   ngOnInit(): void {
   }
 
-  addProduct(x): void {
-  console.log(x);
+  addProduct(AddFormulaire: NgForm): void {
+   this.productService.addProduct(AddFormulaire.value).subscribe(
+     (response) => {
+       const link = ['productList'];
+       this.router.navigate(link);
+     },
+     (error) => {
+       console.log(error);
+     }
+   )
   }
 
 }
