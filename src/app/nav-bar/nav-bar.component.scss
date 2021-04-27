@@ -5,3 +5,46 @@
   font-weight: 400;
   color: white;
 }
+
+.logo {
+  padding: 50px;
+}
+
+#sidebar-wrapper .sidebar-heading {
+  padding: 0.875rem 1.25rem;
+  font-size: 1.2rem;
+}
+#sidebar-wrapper .list-group {
+  width: 15rem;
+}
+#page-content-wrapper {
+  min-width: 100vw;
+}
+#wrapper.toggled #sidebar-wrapper {
+  margin-left: 0;
+}
+@media (min-width: 768px) {
+  #sidebar-wrapper {
+    margin-left: 0;
+    width: 100%;
+  }
+  #page-content-wrapper {
+    min-width: 0;
+    width: 100%;
+  }
+  #wrapper.toggled #sidebar-wrapper {
+    margin-left: -15rem;
+  }
+}
+
+.active {
+  color: blueviolet;
+  border-color: blueviolet;
+ 
+}
+.bg-light {
+  background-color: white;
+}
+.sidebar-heading {
+  color: white;
+}

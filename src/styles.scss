@@ -19,7 +19,7 @@ body {
   color: #10c469;
 }
 .text-info {
-  color: #62c9e8;
+  color: #680dbd;
 }
 .text-warning {
   color: #ffc107;
@@ -49,10 +49,10 @@ body {
 
 .pagination li.active a,
 .pagination li.active a.page-link {
-  background: #03a9f4;
+  background: #680dbd;
 }
 .pagination li.active a:hover {
-  background: #0397d6;
+  background: #680dbd;
 }
 .pagination li.disabled i {
   color: #ccc;
@@ -65,4 +65,8 @@ body {
   float: left;
   margin-top: 10px;
   font-size: 13px;
+}
+.avatar{
+    width: 50px;
+    height: 50px;
 }

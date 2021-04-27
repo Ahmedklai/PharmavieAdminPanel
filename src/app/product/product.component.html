@@ -1,14 +1,16 @@
 
-<tr>
-    <th scope="row">1</th>
-    <td><a href="#"><img src={{product?.path}} class="avatar" alt="Avatar"> Michael Holz</a></td>
-    <td>04/10/2013</td>                        
-    <td>Admin</td>
-    <td>{{product?.description}} </td>
-    <td>{{product?.publicPrice}} DT</td>
-    <td>
-        <a href="#" class="settings" title="Settings" data-toggle="tooltip"><i class="material-icons">&#xE8B8;</i></a>
-        <a href="#" class="delete" title="Delete" data-toggle="tooltip"><i class="material-icons">&#xE5C9;</i></a>
-    </td>
-</tr>
 
+   
+        <th scope="row">1</th>
+        <th><a href="#"><img src={{product?.path}} class="avatar" alt="Avatar"> Michael Holz</a></th>
+        <td>04/10/2013</td>                        
+        <td>{{product?.form}}</td>
+        <td>{{product?.description}} </td>
+        <td>{{product?.publicPrice}} DT</td>
+        <td>
+            <button type="button" (click)="removeproduct(product?.id)"  class="btn btn-danger mt-4 text-white"><i class="icon-cart-add mr-2"></i> Delete Product</button>
+
+        </td>
+
+
+        

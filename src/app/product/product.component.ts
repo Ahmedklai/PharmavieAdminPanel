@@ -23,8 +23,7 @@ export class ProductComponent implements OnInit {
     this.productService.removeProduct(id).subscribe(
       (response) => {
        console.log(response);
-       const link = ['productList'];
-       this.router.navigate(link);
+       window.location.reload();
       },
       (error) => {
         console.log(error);
