@@ -49,7 +49,7 @@
                     </div>
                 </div>
             </div>
-            <table class="table table-striped table-hover">
+            <table mbTable class="table table-striped table-hover">
                 <thead>
                     <tr>
                         <th>#</th>
@@ -61,11 +61,20 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr *ngFor="let myProduct of products">
+                    
 
-                        <app-product  [product]="myProduct" ></app-product>
-                    </tr>
-                
+                    <tr mbTableCol *ngFor="let myProduct of products" [product]="myProduct">
+                        <th scope="row">1</th>
+                        <th><a href="#"><img src={{product?.path}} class="avatar" alt="Avatar"> Michael Holz</a></th>
+                        <td>04/10/2013</td>                        
+                        <td>{{product?.form}}</td>
+                        <td>{{product?.description}} </td>
+                        <td>{{product?.publicPrice}} DT</td>
+                        <td>
+                            <button type="button" (click)="removeproduct(product?.id)"  class="btn btn-danger mt-4 text-white"><i class="icon-cart-add mr-2"></i> Delete Product</button>
+                        </td>
+                    </tr>  
+                  
             </tbody>
         </table>
        
