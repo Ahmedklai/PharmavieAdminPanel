@@ -10,31 +10,43 @@
             </div>
             <div class="card-body">
               <h5 class="card-title text-center">Register</h5>
-              <form class="form-signin">
-                <div class="form-label-group">
-                  <input type="text" id="inputUserame" class="form-control" placeholder="Username" required autofocus>
-                  <label for="inputUserame">Username</label>
-                </div>
+              <form class="form-signin" #SignUpForm="ngForm"  >
+                <div class="form-group">
+                  
+                  <label for="userName">User Name</label>
+                  <input 
+                  required
+                  ngModel name='userName' #userName="ngModel" id= "userName" type="text" class="form-control">
+                  <div class="alert alert-danger" *ngIf=" userName.invalid && userName.touched" > 
+                      <div *ngIf="  userName.errors.required"  >  User Name required</div>
+                  </div>
+               </div>
   
-                <div class="form-label-group">
-                  <input type="email" id="inputEmail" class="form-control" placeholder="Email address" required>
-                  <label for="inputEmail">Email address</label>
+               <div class="form-group">
+                <label for="email">Email Adresse</label>
+                <input 
+                required
+                ngModel name='email' #email="ngModel" id= "email" type="email" class="form-control">
+                <div class="alert alert-danger" *ngIf=" email.invalid && email.touched" > 
+                    <div *ngIf="  email.errors.required"  >  Email Adresse required</div>
                 </div>
+             </div>
                 
                 <hr>
   
-                <div class="form-label-group">
-                  <input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputPassword">Password</label>
-                </div>
+                <div class="form-group">
+                  <label for="password">Password</label>
+                  <input 
+                  required
+                  ngModel name='password' #password="ngModel" id= "password" type="text" class="form-control">
+                  <div class="alert alert-danger" *ngIf=" password.invalid && password.touched" > 
+                      <div *ngIf="  password.errors.required"  >   Password is  required</div>
+                  </div>
+               </div>
                 
-                <div class="form-label-group">
-                  <input type="password" id="inputConfirmPassword" class="form-control" placeholder="Password" required>
-                  <label for="inputConfirmPassword">Confirm password</label>
-                </div>
-  
-                <button class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                <a class="d-block text-center mt-2 small" href="#">Sign In</a>
+      
+                <button  (click)="SignUp(SignUpForm)" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <a   class="d-block text-center mt-2 small" href="#">Sign In</a>
                 <hr class="my-4">
                 <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
                 <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>
