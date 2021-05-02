@@ -2,17 +2,17 @@
 
 <div class="container d-flex flex-column align-items-start justify-content-center  h-100">
     <div class="table-title">
-       Add a product
+       Edit this product
     </div>
     
-    <form #AddFormulaire="ngForm"  >
+    <form #UpdateFormulaire="ngForm"  >
     <div class="row ">
       <div class="col-sm">
         <div class="form-group">
             <label for="name">Name</label>
             <input 
             required
-            ngModel name='name' #name="ngModel" id= "name" type="text" class="form-control">
+            [(ngModel)]="product.name" name='name' #name="ngModel" id= "name" type="text" class="form-control">
             <div class="alert alert-danger" *ngIf=" name.invalid && name.touched" > 
                 <div *ngIf="  name.errors.required"  > First name required</div>
             
@@ -23,7 +23,7 @@
             <label for="laboratory">Laboratory</label>
             <input 
             required
-            ngModel name='laboratory' #laboratory="ngModel" id= "laboratory" type="text" class="form-control">
+            [(ngModel)]="product.laboratory" name='laboratory' #laboratory="ngModel" id= "laboratory" type="text" class="form-control">
             <div class="alert alert-danger" *ngIf=" laboratory.invalid && laboratory.touched" > 
                 <div *ngIf="  laboratory.errors.required"  >  Laboratory required</div>
             
@@ -33,21 +33,20 @@
          <div class="form-group">
             <label for="form">Form</label>
             <input 
-           
             required
-            ngModel #form="ngModel" id= "form" type="text" class="form-control" value="John">
+            [(ngModel)]="product.form" name='form' #form="ngModel" id= "form" type="text" class="form-control">
             <div class="alert alert-danger" *ngIf=" form.invalid && form.touched" > 
                 <div *ngIf="  form.errors.required"  >  Form required</div>
             
             </div>
 
          </div>
-        
+         
          <div class="form-group">
              <label for="description">Description</label>
              <textarea 
              required
-             ngModel name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="10" >
+             [(ngModel)]="product.description" name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="10" >
             <div class="alert alert-danger" *ngIf=" description.invalid && description.touched" > 
                 <div *ngIf="  description.errors.required"  >  FDescriptionorm required</div>
             
@@ -60,20 +59,20 @@
       <div class="col-sm">
         <div class="form-group">
             <label for="path">Image Path</label>
-            <input   ngModel name='path' id= "path" type="text" class="form-control">
+            <input [(ngModel)]="product.path" name='path' id= "path" type="text" class="form-control">
          </div>
          
          <div class="form-group">
              <label for="publicPrice">Public Price</label>
-             <input  ngModel name='publicPrice' id="publicPrice" type="number" class="form-control">
+             <input [(ngModel)]="product.publicPrice" name='publicPrice' id="publicPrice" type="number" class="form-control">
          
      
          </div>
 
        <button
-        [disabled] ="AddFormulaire.invalid" 
+        [disabled] ="UpdateFormulaire.invalid" 
         class="btn btn-primary"
-        (click)="addProduct(AddFormulaire)"
+        (click)="updateProduct(UpdateFormulaire)"
         >
         Submit
        </button>

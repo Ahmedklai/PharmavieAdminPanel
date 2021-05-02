@@ -53,25 +53,25 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Name</th>						
-                        <th>Date Created</th>
-                        <th>Role</th>
-                        <th>Status</th>
-                        <th>Action</th>
+                        <th>Form</th>						
+                        <th>Form</th>
+                        <th>Laboratory</th>
+                        <th>Description</th>
+                        <th>Price </th>
                     </tr>
                 </thead>
                 <tbody>
                     
 
-                    <tr mbTableCol *ngFor="let myProduct of products" [product]="myProduct">
+                    <tr mbTableCol *ngFor="let myProduct of products">
                         <th scope="row">1</th>
-                        <th><a href="#"><img src={{product?.path}} class="avatar" alt="Avatar"> Michael Holz</a></th>
-                        <td>04/10/2013</td>                        
-                        <td>{{product?.form}}</td>
-                        <td>{{product?.description}} </td>
-                        <td>{{product?.publicPrice}} DT</td>
+                        <th><a [routerLink]="['/app-form-update',myProduct?.id]" href="#"><img src={{myProduct?.path}} class="avatar" alt="Avatar"> {{myProduct?.name}} </a></th>
+                        <td>{{myProduct?.form}}</td>                        
+                        <td>{{myProduct?.laboratory}}</td>
+                        <td>{{myProduct?.description}} </td>
+                        <td>{{myProduct?.publicPrice}} DT</td>
                         <td>
-                            <button type="button" (click)="removeproduct(product?.id)"  class="btn btn-danger mt-4 text-white"><i class="icon-cart-add mr-2"></i> Delete Product</button>
+                            <button type="button" (click)="removeproduct(myProduct?.id)"  class="btn btn-danger  text-white"><i class="icon-cart-add mr-2"></i> Delete </button>
                         </td>
                     </tr>  
                   

@@ -18,17 +18,5 @@ export class ProductComponent implements OnInit {
     
   }
 
-  removeproduct(id : String): void {
-  
-    this.productService.removeProduct(id).subscribe(
-      (response) => {
-       console.log(response);
-       window.location.reload();
-      },
-      (error) => {
-        console.log(error);
-      }
-    )
-   }
 
 }

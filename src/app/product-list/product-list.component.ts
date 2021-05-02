@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { Product } from '../product';
 import { ProductService } from './product-service.service';
 
@@ -9,6 +9,7 @@ import { ProductService } from './product-service.service';
 })
 export class ProductListComponent implements OnInit {
   products : Product[] ;
+  @Input() product : Product;
   constructor( private productservice:  ProductService) { 
    
 
@@ -22,6 +23,18 @@ export class ProductListComponent implements OnInit {
   }
   goToForm () {
     this.productservice.goToForm();
+   }
+   removeproduct(id : String): void {
+    console.log(id);
+    this.productservice.removeProduct(id).subscribe(
+      (response) => {
+       console.log(response);
+       window.location.reload();
+      },
+      (error) => {
+        console.log(error);
+      }
+    )
    }
 
 }

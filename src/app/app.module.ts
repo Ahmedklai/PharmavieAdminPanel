@@ -11,6 +11,8 @@ import { HttpComponent } from './http/http.component';
 import { HttpClientModule } from '@angular/common/http';
 import { ProductComponent } from './product/product.component';
 import { LoginComponent } from './login/login.component';
+import { FormUpdateComponent } from './form-update/form-update.component';
+import { HomeComponent } from './home/home.component';
 
 @NgModule({
   declarations: [
@@ -20,7 +22,9 @@ import { LoginComponent } from './login/login.component';
     ProductListComponent,
     HttpComponent,
     ProductComponent,
-    LoginComponent, 
+    LoginComponent,
+    FormUpdateComponent,
+    HomeComponent, 
     
   ],
   imports: [
