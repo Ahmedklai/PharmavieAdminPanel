@@ -1,8 +1,8 @@
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
-import { Observable } from 'rxjs';
-
+import { Observable , throwError } from 'rxjs';
+import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
@@ -22,8 +22,13 @@ export class LoginService {
       
       credential["role"] = "admin";
       console.log(credential);
-     return this.http.post(this.link+'/create' , credential) ;
+     return this.http.post(this.link+'/create' , credential).pipe(catchError(this.handleError));
      
+   }
+
+   handleError (error : HttpErrorResponse) {
+    return  throwError(error.error.message );
+
    }
 
    public getToken(): string {

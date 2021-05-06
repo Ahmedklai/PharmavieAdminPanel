@@ -44,9 +44,13 @@
                   </div>
                </div>
                 
+            
+                <h6 style="color: red" >{{errorMsg}}</h6>
+       
+             
       
-                <button  (click)="SignUp(SignUpForm)" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
-                <a   class="d-block text-center mt-2 small" href="#">Sign In</a>
+                <button    [disabled] ="SignUpForm.invalid"  (click)="SignUp(SignUpForm)" class="btn btn-lg btn-primary btn-block text-uppercase" type="submit">Register</button>
+                <a   class="d-block text-center mt-2 small" href="#">Already had an Account ! Login In</a>
                 <hr class="my-4">
                 <button class="btn btn-lg btn-google btn-block text-uppercase" type="submit"><i class="fab fa-google mr-2"></i> Sign up with Google</button>
                 <button class="btn btn-lg btn-facebook btn-block text-uppercase" type="submit"><i class="fab fa-facebook-f mr-2"></i> Sign up with Facebook</button>

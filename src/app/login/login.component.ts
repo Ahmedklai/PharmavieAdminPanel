@@ -14,7 +14,7 @@ export class LoginComponent implements OnInit {
     private LoginService: LoginService,
     private router : Router 
   ) { }
-
+  public errorMsg ;
   ngOnInit(): void {
   }
 
@@ -28,7 +28,8 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['home/productList']);
       },
       (error) => {
-        console.log(error);
+       this.errorMsg = error ;
+       console.log(this.errorMsg);
       }
     )
    }
