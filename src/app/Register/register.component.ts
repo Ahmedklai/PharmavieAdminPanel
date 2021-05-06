@@ -1,17 +1,17 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoginService } from './login.service';
+import { RegisterService } from './register.service';
 
 @Component({
-  selector: 'login',
-  templateUrl: './login.component.html',
-  styleUrls: ['./login.component.scss']
+  selector: 'register',
+  templateUrl: './register.component.html',
+  styleUrls: ['./register.component.scss']
 })
-export class LoginComponent implements OnInit {
+export class RegisterComponent implements OnInit {
 
   constructor(
-    private LoginService: LoginService,
+    private RegisterService: RegisterService,
     private router : Router 
   ) { }
   public errorMsg ;
@@ -20,7 +20,7 @@ export class LoginComponent implements OnInit {
 
   SignUp(SignUpForm: NgForm): void {
     console.log(SignUpForm.value);
-    this.LoginService.signUp(SignUpForm.value).subscribe(
+    this.RegisterService.signUp(SignUpForm.value).subscribe(
       (response) => {
         const token = response.accessToken ;
         localStorage.setItem('pahrmavie_token' ,token) ;

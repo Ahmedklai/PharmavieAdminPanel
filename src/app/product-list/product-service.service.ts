@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { LoginService } from '../login/login.service';
+import { RegisterService } from '../Register/register.service';
 import { Product } from '../product';
 
 @Injectable({
@@ -13,13 +13,13 @@ export class ProductService {
  link = 'http://localhost:3000/products' ;
 
   constructor(
-   private loginService : LoginService ,
+   private registerService : RegisterService ,
    private http: HttpClient ,
    private router :Router,
 
   ) { }
     
-   token = this.loginService.getToken()
+   token = this.registerService.getToken()
    getProducts () : Observable<Product[]> { 
    
  
@@ -28,7 +28,7 @@ export class ProductService {
   }
   getProductsById (id : String) : Observable<any > { 
      
-    return this.http.get(this.link+"/get"+id , {headers:{"authorization": "Bearer " +this.token}}) ;
+    return this.http.get(this.link+"/get/"+id , {headers:{"authorization": "Bearer " +this.token}}) ;
     
   }
 
@@ -38,8 +38,9 @@ export class ProductService {
   
   }
   updateProduct (product : Product) : Observable<any> { 
+    console.log(product);
    
-   return this.http.post(this.link+"/update", product , {headers:{"authorization": "Bearer " +this.token}}) ;
+   return this.http.put(this.link+"/update", product , {headers:{"authorization": "Bearer " +this.token}}) ;
  
  }
   removeProduct (id : String) : Observable<any> { 
@@ -49,7 +50,11 @@ export class ProductService {
  }
 
  goToForm () {
-  this.router.navigate(['form']);
+  this.router.navigate(['home/form']);
  }
-
+ goToUpdate (  id ) {
+  
+  this.router.navigate(['home/app-form-update/'+id]);
+ }
+ 
 }

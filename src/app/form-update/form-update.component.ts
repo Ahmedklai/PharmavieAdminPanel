@@ -23,6 +23,7 @@ export class FormUpdateComponent implements OnInit {
   ngOnInit(): void {
     
     this.id=this.activatedroute.snapshot.paramMap.get("id");
+    console.log(this.id);
     this.getProduct(this.id);
   }
  
@@ -41,10 +42,11 @@ export class FormUpdateComponent implements OnInit {
    }
   updateProduct(updateFormulaire: NgForm): void {
      let product  = { ...updateFormulaire.value, id: this.id};
+ 
     this.productService.updateProduct(product).subscribe(
       (response) => {
-        console.log(updateFormulaire.value);
-        const link = ['productList'];
+    
+        const link = ['home/productList'];
         this.router.navigate(link);
       },
       (error) => {

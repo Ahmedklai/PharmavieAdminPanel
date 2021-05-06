@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import * as $ from 'jquery';
+import { RegisterService } from '../Register/register.service';
 @Component({
   selector: 'app-nav-bar',
   templateUrl: './nav-bar.component.html',
@@ -7,9 +7,16 @@ import * as $ from 'jquery';
 })
 export class NavBarComponent implements OnInit {
 
-  constructor() { }
-
-  ngOnInit () {
-   
+  constructor(
+    private RegisterService: RegisterService,
+  ) { }
+  ngOnInit(): void {
+    
+  }
+  logout () {
+  
+      
+      this.RegisterService.Logout() ;
+        
 
 }}

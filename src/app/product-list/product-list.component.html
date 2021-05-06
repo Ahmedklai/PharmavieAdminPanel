@@ -53,7 +53,7 @@
                 <thead>
                     <tr>
                         <th>#</th>
-                        <th>Form</th>						
+                        <th>Product</th>						
                         <th>Form</th>
                         <th>Laboratory</th>
                         <th>Description</th>
@@ -65,7 +65,7 @@
 
                     <tr mbTableCol *ngFor="let myProduct of products">
                         <th scope="row">1</th>
-                        <th><a [routerLink]="['/app-form-update',myProduct?.id]" href="#"><img src={{myProduct?.path}} class="avatar" alt="Avatar"> {{myProduct?.name}} </a></th>
+                        <th><button   (click)="goToUpdate(myProduct?.id) " ><img src={{myProduct?.path}} class="avatar" alt="Avatar"> {{myProduct?.name}} </button></th>
                         <td>{{myProduct?.form}}</td>                        
                         <td>{{myProduct?.laboratory}}</td>
                         <td>{{myProduct?.description}} </td>

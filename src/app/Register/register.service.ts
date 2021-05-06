@@ -6,7 +6,7 @@ import { catchError } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class LoginService {
+export class RegisterService {
 
   
   link = 'http://localhost:3000/user' ;
@@ -34,6 +34,10 @@ export class LoginService {
    public getToken(): string {
   return localStorage.getItem("pahrmavie_token");
   }
+
+  public Logout(): any {
+    var x =  localStorage.removeItem("pahrmavie_token");
+    }
 
   
 

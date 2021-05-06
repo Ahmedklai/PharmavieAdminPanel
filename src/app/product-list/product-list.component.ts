@@ -24,6 +24,9 @@ export class ProductListComponent implements OnInit {
   goToForm () {
     this.productservice.goToForm();
    }
+   goToUpdate (id) {
+    this.productservice.goToUpdate(id);
+   }
    removeproduct(id : String): void {
     console.log(id);
     this.productservice.removeProduct(id).subscribe(
