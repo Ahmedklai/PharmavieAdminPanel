@@ -13,6 +13,8 @@ import { ProductComponent } from './product/product.component';
 import { RegisterComponent } from './Register/register.component';
 import { FormUpdateComponent } from './form-update/form-update.component';
 import { HomeComponent } from './home/home.component';
+import { LoginComponent } from './login/login.component';
+import { AuthGuardService } from './auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -24,7 +26,8 @@ import { HomeComponent } from './home/home.component';
     ProductComponent,
     RegisterComponent,
     FormUpdateComponent,
-    HomeComponent, 
+    HomeComponent,
+    LoginComponent, 
     
   ],
   imports: [
@@ -32,10 +35,11 @@ import { HomeComponent } from './home/home.component';
     ReactiveFormsModule  ,
     BrowserModule,
     AppRoutingModule, 
-    HttpClientModule
+    HttpClientModule ,
+    
      
   ],
-  providers: [],
+  providers: [AuthGuardService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

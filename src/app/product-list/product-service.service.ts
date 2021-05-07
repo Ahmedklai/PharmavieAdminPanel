@@ -2,7 +2,7 @@ import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/internal/Observable';
-import { RegisterService } from '../Register/register.service';
+import { RegisterService } from '../auth.service';
 import { Product } from '../product';
 
 @Injectable({

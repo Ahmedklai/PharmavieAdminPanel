@@ -4,23 +4,23 @@ import { Router } from '@angular/router';
 import { RegisterService } from '../auth.service';
 
 @Component({
-  selector: 'register',
-  templateUrl: './register.component.html',
-  styleUrls: ['./register.component.scss']
+  selector: 'login',
+  templateUrl: './login.component.html',
+  styleUrls: ['./login.component.scss']
 })
-export class RegisterComponent implements OnInit {
+export class LoginComponent implements OnInit {
 
   constructor(
-    private RegisterService: RegisterService,
+    private register: RegisterService,
     private router : Router 
   ) { }
   public errorMsg ;
   ngOnInit(): void {
   }
 
-  SignUp(SignUpForm: NgForm): void {
-    console.log(SignUpForm.value);
-    this.RegisterService.signUp(SignUpForm.value).subscribe(
+  SignUp(LoginForm: NgForm): void {
+  
+    this.register.login(LoginForm.value).subscribe(
       (response) => {
         const token = response.accessToken ;
         localStorage.setItem('pahrmavie_token' ,token) ;
@@ -33,9 +33,4 @@ export class RegisterComponent implements OnInit {
       }
     )
    }
-
-   GoToLogin() {
-     this.RegisterService.GoToLogin() ;
-   }
-
 }
