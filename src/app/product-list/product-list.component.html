@@ -43,7 +43,12 @@
                     <div class="col-5">
                         <h2> Product  <b>Management</b></h2>
                     </div>
-                    <div class="col-7 d-flex justify-content-end">
+                    <div class="col-4 d-flex justify-content-center">
+                        <input type="text"  [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter the Product Name">
+                  				
+                    </div>
+                 
+                    <div class="col-3 d-flex justify-content-end">
                         <button href="#"  (click)="goToForm()"class="btn btn-primary">Add new Product</button>
                   				
                     </div>
@@ -63,7 +68,7 @@
                 <tbody>
                     
 
-                    <tr mbTableCol *ngFor="let myProduct of products">
+                    <tr mbTableCol *ngFor="let myProduct of products | paginate :{itemsPerPage:5 , currentPage:p};">
                         <th scope="row">1</th>
                         <th><button   (click)="goToUpdate(myProduct?.id) " ><img src={{myProduct?.path}} class="avatar" alt="Avatar"> {{myProduct?.name}} </button></th>
                         <td>{{myProduct?.form}}</td>                        
@@ -76,8 +81,10 @@
                     </tr>  
                   
             </tbody>
+            <pagination-controls (pageChange) = "p = $event"> </pagination-controls>   
         </table>
        
     </div>
-</div>        
+</div>   
+
 </div>     

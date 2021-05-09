@@ -21,7 +21,7 @@ export class FormComponent implements OnInit {
   addProduct(AddFormulaire: NgForm): void {
    this.productService.addProduct(AddFormulaire.value).subscribe(
      (response) => {
-       const link = ['productList'];
+       const link = ['home/productList'];
        this.router.navigate(link);
      },
      (error) => {

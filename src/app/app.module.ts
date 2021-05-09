@@ -15,6 +15,8 @@ import { FormUpdateComponent } from './form-update/form-update.component';
 import { HomeComponent } from './home/home.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { NgxPaginationModule } from 'ngx-pagination';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import { AuthGuardService } from './auth-guard.service';
     BrowserModule,
     AppRoutingModule, 
     HttpClientModule ,
-    
+    Ng2SearchPipeModule , 
+    NgxPaginationModule
      
   ],
   providers: [AuthGuardService],

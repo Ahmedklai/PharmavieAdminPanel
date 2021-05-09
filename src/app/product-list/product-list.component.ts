@@ -9,6 +9,8 @@ import { ProductService } from './product-service.service';
 })
 export class ProductListComponent implements OnInit {
   products : Product[] ;
+  name : String ;
+  p : Number ;
   @Input() product : Product;
   constructor( private productservice:  ProductService) { 
    
@@ -21,6 +23,19 @@ export class ProductListComponent implements OnInit {
       (products) => this.products = products 
     ) ;
   }
+   
+  Search(){
+    if(this.name == "") {
+      this.ngOnInit() ;
+    }
+    else {
+    this.products = this.products.filter(product =>{
+      return product.name.toLowerCase().match(this.name.toLowerCase())
+    })
+
+    }
+  }
+
   goToForm () {
     this.productservice.goToForm();
    }
