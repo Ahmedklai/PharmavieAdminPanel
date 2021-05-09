@@ -6,28 +6,22 @@ import { ProductService } from '../product-list/product-service.service';
 @Component({
   selector: 'app-form',
   templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss']
+  styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-
-  constructor(
-   private productService: ProductService ,
-   private router: Router 
-  ) { }
-
-  ngOnInit(): void {
-  }
+  constructor(private productService: ProductService, private router: Router) {}
+  isPromotion: boolean;
+  ngOnInit(): void {}
 
   addProduct(AddFormulaire: NgForm): void {
-   this.productService.addProduct(AddFormulaire.value).subscribe(
-     (response) => {
-       const link = ['home/productList'];
-       this.router.navigate(link);
-     },
-     (error) => {
-       console.log(error);
-     }
-   )
+    this.productService.addProduct(AddFormulaire.value).subscribe(
+      (response) => {
+        const link = ['home/productList'];
+        this.router.navigate(link);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
-
 }

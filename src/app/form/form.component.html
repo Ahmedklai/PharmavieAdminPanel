@@ -69,6 +69,26 @@
          
      
          </div>
+        
+        <div class="form-check">
+          <label class="form-check-label">
+            <input [(ngModel)]="isPromotion" type="checkbox" class="form-check-input" name="isPromotion" id="isPromotion" value="isPromotion">
+            is promotion !
+          </label>
+        </div>
+        <br/>
+        <div *ngIf="isPromotion" class="form-group">
+            <label for="publicPrice">New Price</label>
+            <input   ngModel name='newPrice' id="newPrice" type="number" class="form-control">
+        </div>
+        <br/>
+        <div class="form-check">
+            <label class="form-check-label">
+              <input ngModel  type="checkbox" class="form-check-input" name="isBestSelling" id="isBestSelling" value="isBestSelling">
+              is best selling !
+            </label>
+          </div>
+          <br/>
 
        <button
         [disabled] ="AddFormulaire.invalid" 

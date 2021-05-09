@@ -63,6 +63,8 @@
                         <th>Laboratory</th>
                         <th>Description</th>
                         <th>Price </th>
+                        <th>is promotion</th>
+                        <th>is best selling</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -75,6 +77,8 @@
                         <td>{{myProduct?.laboratory}}</td>
                         <td>{{myProduct?.description}} </td>
                         <td>{{myProduct?.publicPrice}} DT</td>
+                        <td>{{myProduct?.isPromotion}}</td>
+                        <td>{{myProduct?.isBestSelling}}</td>
                         <td>
                             <button type="button" (click)="removeproduct(myProduct?.id)"  class="btn btn-danger  text-white"><i class="icon-cart-add mr-2"></i> Delete </button>
                         </td>
