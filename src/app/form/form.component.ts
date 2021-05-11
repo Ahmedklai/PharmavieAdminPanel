@@ -10,7 +10,9 @@ import { ProductService } from '../product-list/product-service.service';
 })
 export class FormComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router) {}
-  isPromotion: boolean;
+  isPromotion: boolean = false;
+  isBestSelling: boolean = false;
+  imageSrc: string = 'https://www.cyclooil.com/images/default_product.png';
   ngOnInit(): void {}
 
   addProduct(AddFormulaire: NgForm): void {
