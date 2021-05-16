@@ -22,6 +22,10 @@ export class FormComponent implements OnInit {
       console.log(this.products);
     });
   }
+  
+  isBestSelling: boolean = false;
+  imageSrc: string = 'https://www.cyclooil.com/images/default_product.png';
+ 
 
   addProduct(AddFormulaire: NgForm): void {
     this.productService.addProduct(AddFormulaire.value).subscribe(

@@ -13,7 +13,7 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent, canActivate: [AuthGuardService] },
   {
     path: 'home',
-
+    canActivate: [AuthGuardService],
     component: HomeComponent,
     children: [
       { path: 'form', component: FormComponent },

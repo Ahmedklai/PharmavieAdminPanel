@@ -1,5 +1,5 @@
-<!-- 
- 
+<!--
+
 <div class="container d-flex justify-content-center mt-50 mb-50">
     <div class="row">
         <div class="col-md-10">
@@ -12,19 +12,19 @@
 
 
 
-<!-- 
+<!--
 
  <section class="main-content">
     <div class="container">
         <h3>All Products</h3>
-        
-        
+
+
 
         <table class="table">
             <thead>
                 <tr>
                     <th>All Products</th>
-                    
+
                     <th>Contact</th>
                     <button type="button"  (click)="goToForm()"  class="btn btn-success mt-4 text-white"><i class="icon-cart-add mr-2"></i> Add new Product</button>
                 </tr>
@@ -45,51 +45,53 @@
                     </div>
                     <div class="col-4 d-flex justify-content-center">
                         <input type="text"  [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter the Product Name">
-                  				
+
                     </div>
-                 
+
                     <div class="col-3 d-flex justify-content-end">
                         <button href="#"  (click)="goToForm()"class="btn btn-primary">Add new Product</button>
-                  				
+
                     </div>
                 </div>
             </div>
             <table mbTable class="table table-striped table-hover">
                 <thead>
                     <tr>
-                        <th>#</th>
-                        <th>Product</th>						
-                        <th>Form</th>
-                        <th>Laboratory</th>
-                        <th>Description</th>
-                        <th>Price </th>
-                        <th>is promotion</th>
-                        <th>is best selling</th>
+
+                        <th>Product details</th>
+
+
+                        <th>Quantity </th>
+                        <th>Date</th>
+                        <th>Promotion</th>
+                        <th>delete</th>
                     </tr>
                 </thead>
                 <tbody>
-                    
+                    <tr mbTableCol *ngFor="let myProduct of products | paginate :{itemsPerPage:8 , currentPage:p};">
+                      <th  (click)="goToUpdate(myProduct?.id) "> <img src={{myProduct?.path}} class="avatar" alt=""> {{myProduct?.name}} </th>
+                      <td>50 Paquets</td>
+                      <td>May 26 , 2019</td>
+                      <td  *ngIf="myProduct?.isPromotion">
+                        <span class="badge badge-success" >{{myProduct?.newPrice}}new price</span>
+                      </td>
+                      <td  *ngIf="!myProduct?.isPromotion">
+                        <span
+                        class="badge badge-danger pl-3 pr-3 pt-1 pb-1"
+                        >No
+                        </span>
+                      </td>
+                      <td>
+                        <button type="button" (click)="removeproduct(myProduct?.id)"
+                        class="btn btn-danger w-100"><i class="icon-cart-add mr-2"></i>
+                        Delete
+                        </button>
+                      </td>
+                  </tr>
+               </tbody>
 
-                    <tr mbTableCol *ngFor="let myProduct of products | paginate :{itemsPerPage:5 , currentPage:p};">
-                        <th scope="row">1</th>
-                        <th><button   (click)="goToUpdate(myProduct?.id) " ><img src={{myProduct?.path}} class="avatar" alt="Avatar"> {{myProduct?.name}} </button></th>
-                        <td>{{myProduct?.form}}</td>                        
-                        <td>{{myProduct?.laboratory}}</td>
-                        <td>{{myProduct?.description}} </td>
-                        <td>{{myProduct?.publicPrice}} DT</td>
-                        <td>{{myProduct?.isPromotion}}</td>
-                        <td>{{myProduct?.isBestSelling}}</td>
-                        <td>
-                            <button type="button" (click)="removeproduct(myProduct?.id)"  class="btn btn-danger  text-white"><i class="icon-cart-add mr-2"></i> Delete </button>
-                        </td>
-                    </tr>  
-                  
-            </tbody>
-            <pagination-controls (pageChange) = "p = $event"> </pagination-controls>   
         </table>
-       
     </div>
-</div>   
 
 </div>     
 
