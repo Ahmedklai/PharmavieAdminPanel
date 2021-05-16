@@ -95,13 +95,7 @@
           </div>
           <br/>
 
-       <button
-        [disabled] ="AddFormulaire.invalid"
-        class="btn btn-primary"
-        (click)="addProduct(AddFormulaire)"
-        >
-        Submit
-       </button>
+       
       </div>
 
     </div>
@@ -117,24 +111,30 @@
           </tr>
       </thead>
       <tbody>
-          <tr *ngFor="let myProduct of products" >
+          <tr *ngFor="let myPharmacie of pharmacies" >
               <td>
                   <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input">
+                      <input type="checkbox" class="custom-control-input"  (click)="addPharmacie(myPharmacie)"   >
                       <span class="custom-control-indicator"></span>
                   </label>
               </td>
-              <td>{{myProduct?.nomprenom}}</td>
-              <td>{{myProduct?.code}}</td>
-              <td>{{myProduct?.email}}</td>
-              <td>{{myProduct?.adresse}}</td>
+              <td>{{myPharmacie?.nomprenom}}</td>
+              <td>{{myPharmacie?.code}}</td>
+              <td>{{myPharmacie?.email}}</td>
+              <td>{{myPharmacie?.adresse}}</td>
           </tr>
          
       </tbody>
       
   </table>
   <div class="row" > <button class="btn btn-primary float-right col-sm">Add Pharmacy</button>
-     <button class="btn btn-primary col-sm">Add Pharmacy</button></div>
+    <button
+    [disabled] ="AddFormulaire.invalid"
+    class="btn btn-primary"
+    (click)="addProduct(AddFormulaire)"
+    >
+    Submit
+   </button></div>
  
 </form>
   </div>

@@ -13,14 +13,22 @@ import { ProductService } from '../product-list/product-service.service';
 export class FormComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router , private pharmaciesService : PharmaciesService) {}
   isPromotion: boolean;
-  products: Pharmacie[];
-
+  pharmacies: Pharmacie[];
+  chosenPharmacies: Pharmacie[] = [];
+  AddFormulaire: NgForm ;
   ngOnInit(): void {
-     this.pharmaciesService.getProducts().subscribe((products) => {
+    
+
+     this.pharmaciesService.getProducts().subscribe((pharmacies) => {
       
-      this.products = products;
-      console.log(this.products);
+      this.pharmacies = pharmacies;
+      console.log(this.pharmacies);
     });
+  }
+
+  addPharmacie(pharmacie :Pharmacie) {
+  console.log(pharmacie);
+   this.chosenPharmacies.push(pharmacie);
   }
   
   isBestSelling: boolean = false;
@@ -28,6 +36,10 @@ export class FormComponent implements OnInit {
  
 
   addProduct(AddFormulaire: NgForm): void {
+    console.log(AddFormulaire.value);
+    AddFormulaire.value['pharmacies'] = this.chosenPharmacies;
+   
+    console.log(AddFormulaire.value);
     this.productService.addProduct(AddFormulaire.value).subscribe(
       (response) => {
         const link = ['home/productList'];

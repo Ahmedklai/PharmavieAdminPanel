@@ -19,6 +19,7 @@ export class Product {
   path: string;
   contreIndications: string;
   tableOfContent: string;
+  pharmacies : string[];
   constructor(
     name: string,
     description: string,
@@ -38,7 +39,8 @@ export class Product {
     use: string,
     path: string,
     contreIndications: string,
-    tableOfContent: string
+    tableOfContent: string ,
+    pharmacies: string[],
   ) {
     this.name = name;
     this.description = description;
@@ -59,5 +61,6 @@ export class Product {
     this.path = path;
     this.contreIndications = contreIndications;
     this.tableOfContent = tableOfContent;
+    this.pharmacies = pharmacies;
   }
 }
