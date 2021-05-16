@@ -100,5 +100,36 @@
       </div>
      
     </div>
+
+    <table class="table table-bordered table-definition mb-5">
+      <thead class="table-warning ">
+          <tr>
+              <th></th>
+              <th><div>Name</div></th>
+              <th>Code</th>
+              <th>E-mail address</th>
+              <th>Adresse</th>
+          </tr>
+      </thead>
+      <tbody>
+          <tr *ngFor="let myProduct of products" >
+              <td>
+                  <label class="custom-control custom-checkbox">
+                      <input type="checkbox" class="custom-control-input">
+                      <span class="custom-control-indicator"></span>
+                  </label>
+              </td>
+              <td>{{myProduct?.nomprenom}}</td>
+              <td>{{myProduct?.code}}</td>
+              <td>{{myProduct?.email}}</td>
+              <td>{{myProduct?.adresse}}</td>
+          </tr>
+         
+      </tbody>
+      
+  </table>
+  <div class="row" > <button class="btn btn-primary float-right col-sm">Add Pharmacy</button>
+     <button class="btn btn-primary col-sm">Add Pharmacy</button></div>
+ 
 </form>
   </div>

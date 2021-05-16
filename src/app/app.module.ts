@@ -17,6 +17,7 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
+import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
 
 @NgModule({
   declarations: [
@@ -42,7 +43,7 @@ import { NgxPaginationModule } from 'ngx-pagination';
     NgxPaginationModule
      
   ],
-  providers: [AuthGuardService],
+  providers: [AuthGuardService , PharmaciesService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

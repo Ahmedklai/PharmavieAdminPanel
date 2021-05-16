@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
+import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
+import { Pharmacie } from '../pharmacie';
 import { ProductService } from '../product-list/product-service.service';
 
 @Component({
@@ -9,9 +11,17 @@ import { ProductService } from '../product-list/product-service.service';
   styleUrls: ['./form.component.scss'],
 })
 export class FormComponent implements OnInit {
-  constructor(private productService: ProductService, private router: Router) {}
+  constructor(private productService: ProductService, private router: Router , private pharmaciesService : PharmaciesService) {}
   isPromotion: boolean;
-  ngOnInit(): void {}
+  products: Pharmacie[];
+
+  ngOnInit(): void {
+     this.pharmaciesService.getProducts().subscribe((products) => {
+      
+      this.products = products;
+      console.log(this.products);
+    });
+  }
 
   addProduct(AddFormulaire: NgForm): void {
     this.productService.addProduct(AddFormulaire.value).subscribe(
