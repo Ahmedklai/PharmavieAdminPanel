@@ -26,10 +26,18 @@ export class FormComponent implements OnInit {
     });
   }
 
-  addPharmacie(pharmacie :Pharmacie) {
-  console.log(pharmacie);
-   this.chosenPharmacies.push(pharmacie);
+  addPharmacie(pharmacie :Pharmacie , value : boolean ) {
+  value ?
+   this.chosenPharmacies.push(pharmacie)  : 
+   this.chosenPharmacies = this.arrayRemove(this.chosenPharmacies , pharmacie );
+
   }
+   arrayRemove(arr, value) { 
+    
+    return arr.filter(function(ele){ 
+        return ele != value; 
+    });
+}
   
   isBestSelling: boolean = false;
   imageSrc: string = 'https://www.cyclooil.com/images/default_product.png';

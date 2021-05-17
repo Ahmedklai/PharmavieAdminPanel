@@ -114,7 +114,7 @@
           <tr *ngFor="let myPharmacie of pharmacies" >
               <td>
                   <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input"  (click)="addPharmacie(myPharmacie)"   >
+                      <input type="checkbox" class="custom-control-input"  (click)="addPharmacie(myPharmacie,$event.target.checked )"   >
                       <span class="custom-control-indicator"></span>
                   </label>
               </td>
