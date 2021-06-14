@@ -21,32 +21,32 @@ export class ProductService {
   token = this.registerService.getToken();
   getProducts(): Observable<Product[]> {
     return this.http.get<Product[]>(this.link + '/getAll', {
-      headers: { authorization: 'Bearer ' + this.token },
+      headers: { authorization: 'Bearer ' + this.registerService.getToken()},
     });
   }
   getProductsById(id: String): Observable<any> {
     return this.http.get(this.link + '/get/' + id, {
-      headers: { authorization: 'Bearer ' + this.token },
+      headers: { authorization: 'Bearer ' + this.registerService.getToken()},
     });
   }
 
   addProduct(product: Product): Observable<any> {
     console.log(product);
     return this.http.post(this.link + '/add', product, {
-      headers: { authorization: 'Bearer ' + this.token },
+      headers: { authorization: 'Bearer ' + this.registerService.getToken() },
     });
   }
   updateProduct(product: Product): Observable<any> {
     console.log(product);
 
     return this.http.put(this.link + '/update', product, {
-      headers: { authorization: 'Bearer ' + this.token },
+      headers: { authorization: 'Bearer ' + this.registerService.getToken() },
     });
   }
   removeProduct(id: String): Observable<any> {
     console.log(id);
     return this.http.delete(this.link + '/remove/' + id, {
-      headers: { authorization: 'Bearer ' + this.token },
+      headers: { authorization: 'Bearer ' + this.registerService.getToken() },
     });
   }
 

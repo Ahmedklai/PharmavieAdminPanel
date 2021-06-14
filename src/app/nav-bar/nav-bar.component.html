@@ -13,14 +13,19 @@
 
       <div class="list-group list-group-flush">
         <a routerLink="/home/productList" routerLinkActive="active"class="list-group-item list-group-item-action bg-dark">Dashboard</a>
+        <a routerLink="/home/pharmacyList" routerLinkActive="active"class="list-group-item list-group-item-action bg-dark">Pharmacies</a>
         <a routerLink="/home/form" routerLinkActive="active" class="list-group-item list-group-item-action bg-dark">Add product</a>
         <a routerLink="/home/add-pharmacy" routerLinkActive="active" class="list-group-item list-group-item-action bg-dark">Add pharmacy</a>
-        <button type="button" class="btn btn-danger ml-3 mr-3 mt-3" data-toggle="modal" data-target="#exampleModal">
+        <br/>
+        <br/>
+        <br/>
+        <button  type="button" class=" justify-self-end btn btn-danger ml-3 mr-3 mt-3" data-toggle="modal" data-target="#exampleModal">
           logout
         </button>
       </div>
+
     </div>
-    <div class="modal" tabindex="-1" role="dialog">
+    <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
       <div class="modal-dialog" role="document">
         <div class="modal-content">
           <div class="modal-header">
@@ -33,7 +38,7 @@
             <p>Are you sure you wanna logout ?</p>
           </div>
           <div class="modal-footer">
-            <button type="button" class="btn btn-primary" (click)="logout()">Confirm</button>
+            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="logout()">Confirm</button>
             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           </div>
         </div>

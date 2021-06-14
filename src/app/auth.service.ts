@@ -8,32 +8,32 @@ import { catchError } from 'rxjs/operators';
 })
 export class RegisterService {
 
-  
+
   link = 'http://localhost:3000/user' ;
-  private isloggedIn: boolean = this.getToken() != null; 
+  private isloggedIn: boolean = this.getToken() != null;
 
    constructor(
- 
+
     private http: HttpClient ,
     private router :Router,
- 
+
    ) { }
-      
-   login (credential) : Observable<any> { 
-      
+
+   login (credential) : Observable<any> {
+
     this.isloggedIn=true;
     console.log(credential);
    return this.http.post(this.link+'/login' , credential).pipe(catchError(this.handleError));
-   
+
  }
-    signUp (credential) : Observable<any> { 
-      
+    signUp (credential) : Observable<any> {
+
       credential["role"] = "admin";
       console.log(credential);
       this.isloggedIn=true;
 
      return this.http.post(this.link+'/create' , credential).pipe(catchError(this.handleError));
-     
+
    }
 
    handleError (error : HttpErrorResponse) {
@@ -52,12 +52,13 @@ export class RegisterService {
     this.isloggedIn=false;
 
     var x =  localStorage.removeItem("pahrmavie_token");
+    this.GoToLogin();
     }
 
     GoToLogin () {
       this.router.navigate(['login']);
      }
 
-  
+
 
 }

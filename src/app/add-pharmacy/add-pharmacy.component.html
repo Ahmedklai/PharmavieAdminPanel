@@ -1,6 +1,6 @@
 
 <div class="container-fluid d-flex flex-column align-items-start justify-content-center  h-100">
-<form #AddFormulaire="ngForm" >
+<form #AddPharmacyFormulaire="ngForm" >
   <div class="table-title">
     Add a pharmacy
  </div>
@@ -8,66 +8,89 @@
    <div class="col-6">
     <div class="form-group m-3">
       <label for="nomprenom">full name</label>
-      <input id="nomprenom" name="nomprenom" placeholder="full name ..." type="text" required="required" class="form-control">
+      <input id="nomprenom" name="nomprenom" ngModel placeholder="full name ..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
       <label for="code">code</label>
-      <input id="code" name="code" placeholder="code..." type="text" required="required" class="form-control">
+      <input id="code" name="code" ngModel placeholder="code..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
       <label for="gouvernorat">gouvernorat</label>
-      <input id="gouvernorat" name="gouvernorat" placeholder="gouvernorat..." type="text" required="required" class="form-control">
+      <input id="gouvernorat" name="gouvernorat" ngModel placeholder="gouvernorat..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
       <label for="region">region</label>
-      <input id="region" name="region" placeholder="region..." type="text" required="required" class="form-control">
+      <input id="region" name="region" ngModel placeholder="region..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
       <label for="cp">cp</label>
-      <input id="cp" name="cp" placeholder="cp..." type="text" required="required" class="form-control">
+      <input id="cp" name="cp" ngModel placeholder="cp..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
-      <label for="adresee">address</label>
-      <input id="adresee" name="adresee" placeholder="address..." type="text" class="form-control" required="required">
+      <label for="adresse">address</label>
+      <input id="adresse" name="adresse" ngModel placeholder="address..." type="text" class="form-control" required="required">
+
+    </div>
+    <div class="form-group m-3">
+      <label for="email">email</label>
+      <input id="email" name="email" ngModel placeholder="email..." type="text" class="form-control" required="required">
+
     </div>
     <div class="form-group m-3">
       <label></label>
       <div>
         <div class="custom-control custom-checkbox custom-control-inline">
           <input name="journuit" id="journuit_0" type="checkbox" required="required" class="custom-control-input" value="journuit">
+
+
           <label for="journuit_0" class="custom-control-label">work by night</label>
         </div>
       </div>
     </div>
     <br/>
-    <button  name="submit" type="submit" class="btn btn-primary w-100">Submit</button>
+    <button (click)="addPharmacy(AddPharmacyFormulaire)"
+     [disabled] ="AddPharmacyFormulaire.invalid"
+     name="submit"
+     type="submit"
+     class="btn btn-primary w-100">Submit</button>
    </div>
    <div class="col-6">
     <div class="form-group">
       <label for="path">Image Path</label>
       <input   [(ngModel)]="imageSrc" name='path' id= "path" type="text" class="form-control">
 
+
       <img class="img-thumbnail m-2" [src]="imageSrc" alt="" >
    </div>
     <div class="form-group m-3">
       <label for="tel">telephone</label>
-      <input id="tel" name="tel" placeholder="telephone..." type="text" class="form-control" required="required">
+      <input id="tel" name="tel" ngModel placeholder="telephone..." type="number" class="form-control" required="required">
+
     </div>
     <div class="form-group m-3">
       <label for="fax">fax</label>
-      <input id="fax" name="fax" placeholder="fax..." type="text" class="form-control" required="required">
+      <input id="fax" name="fax" ngModel placeholder="fax..." type="number" class="form-control" required="required">
+
     </div>
     <div class="form-group m-3">
       <label for="hmatin">morning time</label>
-      <input id="hmatin" name="hmatin" placeholder="morning time ..." type="text" required="required" class="form-control">
+      <input id="hmatin" name="hmatin" ngModel placeholder="morning time ..." type="text" required="required" class="form-control">
+
     </div>
     <div class="form-group m-3">
       <label for="hapresmidi">evening time</label>
-      <input id="hapresmidi" name="hapresmidi" placeholder="evening time ..." type="text" class="form-control" required="required">
+      <input id="hapresmidi" name="hapresmidi" ngModel placeholder="evening time ..." type="text" class="form-control" required="required">
+
     </div>
     <div class="form-group m-3">
       <label for="hsoir">Night time</label>
-      <input id="hsoir" name="hsoir" placeholder="night time ..." type="text" class="form-control">
+      <input id="hsoir" name="hsoir" ngModel placeholder="night time ..." type="text" class="form-control">
+
     </div>
 
    </div>

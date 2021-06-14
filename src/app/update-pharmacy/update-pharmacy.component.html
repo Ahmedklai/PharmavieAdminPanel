@@ -1,0 +1,90 @@
+
+<div class="container-fluid d-flex flex-column align-items-start justify-content-center  h-100">
+  <form #UpdatePharmacyFormulaire="ngForm" >
+    <div class="table-title">
+      Add a pharmacy
+   </div>
+   <div class="row">
+     <div class="col-6">
+      <div class="form-group m-3">
+        <label for="nomprenom">full name</label>
+        <input id="nomprenom" name="nomprenom" [(ngModel)]="pharmacy.nomprenom" placeholder="full name ..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="code">code</label>
+        <input id="code" name="code" #code="ngModel" [(ngModel)]="pharmacy.code" placeholder="code..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="gouvernorat">gouvernorat</label>
+        <input id="gouvernorat" name="gouvernorat" [(ngModel)]="pharmacy.gouvernorat" placeholder="gouvernorat..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="region">region</label>
+        <input id="region" name="region" [(ngModel)]="pharmacy.region" placeholder="region..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="cp">cp</label>
+        <input id="cp" name="cp" [(ngModel)]="pharmacy.cp" placeholder="cp..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="adresse">address</label>
+        <input id="adresse" name="adresse" [(ngModel)]="pharmacy.adresse" placeholder="address..." type="text" class="form-control" >
+      </div>
+      <div class="form-group m-3">
+        <label for="email">email</label>
+        <input id="email" name="email" [(ngModel)]="pharmacy.email" placeholder="email..." type="email" class="form-control" >
+      </div>
+      <div class="form-group m-3">
+        <label></label>
+        <div>
+          <div class="custom-control custom-checkbox custom-control-inline">
+            <input [(ngModel)]="pharmacy.journuit" name="journuit" id="journuit_0" type="checkbox"  class="custom-control-input" value="journuit">
+            <label for="journuit_0" class="custom-control-label">work by night</label>
+          </div>
+        </div>
+      </div>
+      <br/>
+      <button (click)="updatePharmacy(UpdatePharmacyFormulaire)"
+       [disabled] ="UpdatePharmacyFormulaire.invalid"
+       name="submit"
+       type="submit"
+       class="btn btn-primary w-100">Submit</button>
+     </div>
+     <div class="col-6">
+      <div class="form-group">
+        <label for="image">Image Path</label>
+        <input   [(ngModel)]="pharmacy.image" name='image' id= "image" type="text" class="form-control">
+
+        <img class="img-thumbnail m-2" [src]="pharmacy?.image == null ? imageSrc : pharmacy?.image" alt="" >
+     </div>
+      <div class="form-group m-3">
+        <label for="tel">telephone</label>
+        <input [(ngModel)]="pharmacy.tel" id="tel" name="tel"  placeholder="telephone..." type="number" class="form-control" >
+      </div>
+      <div class="form-group m-3">
+        <label for="fax">fax</label>
+        <input id="fax" name="fax" [(ngModel)]="pharmacy.fax" placeholder="fax..." type="number" class="form-control" >
+      </div>
+      <div class="form-group m-3">
+        <label for="hmatin">morning time</label>
+        <input id="hmatin" name="hmatin" [(ngModel)]="pharmacy.hmatin" placeholder="morning time ..." type="text"  class="form-control">
+      </div>
+      <div class="form-group m-3">
+        <label for="hapresmidi">evening time</label>
+        <input id="hapresmidi" name="hapresmidi" [(ngModel)]="pharmacy.hapresmidi" placeholder="evening time ..." type="text" class="form-control" >
+      </div>
+      <div class="form-group m-3">
+        <label for="hsoir">Night time</label>
+        <input id="hsoir" name="hsoir" [(ngModel)]="pharmacy.hsoir" placeholder="night time ..." type="text" class="form-control">
+      </div>
+
+     </div>
+   </div>
+
+
+
+
+
+  </form>
+  </div>
+

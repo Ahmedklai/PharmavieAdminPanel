@@ -17,9 +17,14 @@ import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from './auth-guard.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
-import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
 import { AddPharmacyComponent } from './add-pharmacy/add-pharmacy.component';
 import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
+import { PharmacyListComponent } from './pharmacy-list/pharmacy-list.component';
+import { UpdatePharmacyComponent } from './update-pharmacy/update-pharmacy.component';
+import { PercentPipe } from './percent.pipe';
+import { PercentModule } from './percent.module';
+import { PharmaciesService } from './pharmacies.service';
+
 
 @NgModule({
   declarations: [
@@ -33,14 +38,20 @@ import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
     FormUpdateComponent,
     HomeComponent,
     LoginComponent,
-      AddPharmacyComponent
+
+      AddPharmacyComponent,
+      PharmacyListComponent,
+
+      UpdatePharmacyComponent
    ],
   imports: [
+    PercentModule,
     FormsModule,
     NgMultiSelectDropDownModule.forRoot(),                               // <========== Add this line!
     ReactiveFormsModule  ,
     BrowserModule,
     AppRoutingModule,
+
     HttpClientModule ,
     Ng2SearchPipeModule ,
     NgxPaginationModule

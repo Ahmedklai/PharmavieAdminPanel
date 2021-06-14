@@ -3,6 +3,8 @@
 <div class="container-fluid d-flex flex-column align-items-start justify-content-center  h-100">
 
 
+
+
     <form #AddFormulaire="ngForm"  >
 
       <div class="table-title">
@@ -17,11 +19,34 @@
             required
             ngModel name='name' #name="ngModel" id= "name" type="text" class="form-control">
             <div class="alert alert-danger" *ngIf=" name.invalid && name.touched" >
-                <div *ngIf="  name.errors.required"  > First name required</div>
+                <div *ngIf="  name.errors.required"  > name required</div>
 
             </div>
 
          </div>
+         <div class="form-group">
+          <label for="conditioning">Conditioning</label>
+          <input
+          required
+          ngModel name='conditioning' #conditioning="ngModel" id= "conditioning" type="text" class="form-control">
+          <div class="alert alert-danger" *ngIf=" conditioning.invalid && conditioning.touched" >
+              <div *ngIf="  conditioning.errors.required"  > contre indication required</div>
+
+          </div>
+         </div>
+          <div class="form-group">
+            <label for="rating">enter rating from 0 - 5</label>
+            <input
+            required
+            ngModel name='rating' #rating="ngModel" id= "rating" type="number" class="form-control" min="0" max="5">
+            <div class="alert alert-danger" *ngIf=" rating.invalid && rating.touched" >
+                <div *ngIf="  rating.errors.required"  > rating  required</div>
+
+            </div>
+       </div>
+
+
+
          <div class="form-group">
             <label for="laboratory">Laboratory</label>
             <input
@@ -36,9 +61,9 @@
          <div class="form-group">
             <label for="form">Form</label>
             <input
-
+             name="form"
             required
-            ngModel #form="ngModel" id= "form" type="text" class="form-control" value="John">
+            ngModel #form="ngModel" id= "form" type="text" class="form-control">
             <div class="alert alert-danger" *ngIf=" form.invalid && form.touched" >
                 <div *ngIf="  form.errors.required"  >  Form required</div>
 
@@ -47,10 +72,11 @@
          </div>
          <br/>
          <ng-multiselect-dropdown
+         name='pharmacies'
          [placeholder]="'Chose pharmacies'"
          [settings]="dropdownSettings"
          [data]="dropDownlList"
-         [(ngModel)]="chosenPharmacies"
+
          (onSelect)="onItemSelect($event)"
          (onSelectAll)="onSelectAll($event)"
        >
@@ -60,9 +86,9 @@
              <label for="description">Description</label>
              <textarea
              required
-             ngModel name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="10" >
+             ngModel name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="5" >
             <div class="alert alert-danger" *ngIf=" description.invalid && description.touched" >
-                <div *ngIf="  description.errors.required"  >  FDescriptionorm required</div>
+                <div *ngIf="  description.errors.required"  >  desciption required</div>
 
             </div>
 
@@ -71,6 +97,32 @@
          </div>
       </div>
       <div class="col-sm">
+        <div class="form-group">
+          <label for="presentation">Presentation</label>
+          <input
+          required
+          ngModel name='presentation' #presentation="ngModel" id= "presentation" type="text" class="form-control">
+          <div class="alert alert-danger" *ngIf=" presentation.invalid && presentation.touched" >
+              <div *ngIf="  presentation.errors.required"  > presentation required</div>
+
+          </div>
+         </div>
+          <div class="form-group">
+            <label for="specification">Specification</label>
+            <input
+            required
+            ngModel name='specification' #specification="ngModel" id= "specification" type="text" class="form-control">
+            <div class="alert alert-danger" *ngIf=" specification.invalid && specification.touched" >
+                <div *ngIf="  specification.errors.required"  > specification required</div>
+            </div></div>
+            <div class="form-group">
+              <label for="DurationOfConversation">DurationOfConversation</label>
+              <input
+              required
+              ngModel name='DurationOfConversation' #DurationOfConversation="ngModel" id= "DurationOfConversation" type="text" class="form-control">
+              <div class="alert alert-danger" *ngIf=" DurationOfConversation.invalid && DurationOfConversation.touched" >
+                  <div *ngIf="  DurationOfConversation.errors.required"  > duration of conversation required</div>
+              </div></div>
         <div class="form-group">
             <label for="path">Image Path</label>
             <input   [(ngModel)]="imageSrc" name='path' id= "path" type="text" class="form-control">
@@ -106,39 +158,10 @@
             </label>
           </div>
           <br/>
-
-
       </div>
-
     </div>
 
-    <!-- <table class="table table-bordered table-definition mb-5">
-      <thead class="table-warning ">
-          <tr>
-              <th></th>
-              <th><div>Name</div></th>
-              <th>Code</th>
-              <th>E-mail address</th>
-              <th>Adresse</th>
-          </tr>
-      </thead>
-      <tbody>
-          <tr *ngFor="let myPharmacie of pharmacies" >
-              <td>
-                  <label class="custom-control custom-checkbox">
-                      <input type="checkbox" class="custom-control-input"  (click)="addPharmacie(myPharmacie,$event.target.checked )"   >
-                      <span class="custom-control-indicator"></span>
-                  </label>
-              </td>
-              <td>{{myPharmacie?.nomprenom}}</td>
-              <td>{{myPharmacie?.code}}</td>
-              <td>{{myPharmacie?.email}}</td>
-              <td>{{myPharmacie?.adresse}}</td>
-          </tr>
 
-      </tbody>
-
-  </table> -->
 
 <br/>
     <button

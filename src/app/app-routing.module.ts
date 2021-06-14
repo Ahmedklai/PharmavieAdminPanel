@@ -8,6 +8,9 @@ import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../app/auth-guard.service';
 import { AddPharmacyComponent } from './add-pharmacy/add-pharmacy.component';
+import { PharmacyListComponent } from './pharmacy-list/pharmacy-list.component';
+import { UpdatePharmacyComponent } from './update-pharmacy/update-pharmacy.component';
+import { PercentPipe } from '@angular/common';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent, canActivate: [AuthGuardService] },
@@ -19,9 +22,10 @@ const routes: Routes = [
     children: [
       { path: 'form', component: FormComponent },
       { path: 'productList', component: ProductListComponent },
+      { path: 'pharmacyList', component: PharmacyListComponent },
       { path: 'app-form-update/:id', component: FormUpdateComponent },
       { path: 'add-pharmacy', component: AddPharmacyComponent },
-      { path: 'update-pharmacy/:id', component: FormUpdateComponent },
+      { path: 'update-pharmacy/:id', component: UpdatePharmacyComponent },
     ],
   },
 ];
@@ -29,5 +33,6 @@ const routes: Routes = [
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
   exports: [RouterModule],
+
 })
 export class AppRoutingModule {}

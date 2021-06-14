@@ -1,0 +1,75 @@
+<div class="container-fluid" >
+  <div class="table-responsive">
+      <div class="table-wrapper">
+          <div class="table-title">
+              <div class="row">
+                  <div class="col-5">
+                      <h2> Pharmacy  <b>Management</b></h2>
+                  </div>
+                  <div class="col-4 d-flex justify-content-center">
+                      <input type="text"  [(ngModel)]="name" (ngModelChange)="Search()" placeholder="Enter the Pharmacy Name">
+
+                  </div>
+
+                  <div class="col-3 d-flex justify-content-end">
+                      <button href="#"
+                      (click)="goToForm()"
+                      class="btn btn-primary">Add new Pharmacy</button>
+
+                  </div>
+              </div>
+          </div>
+          <table mbTable class="table table-striped table-hover">
+              <thead>
+                  <tr>
+
+                      <th>full name</th>
+
+
+                      <th>address </th>
+                      <th>code</th>
+                      <th>email</th>
+
+                  </tr>
+              </thead>
+              <tbody>
+                  <tr mbTableCol *ngFor="let pharmaci of pharmacies | paginate :{itemsPerPage:8 , currentPage:p};">
+                    <td  (click)="goToUpdate(pharmaci?._id) ">
+                      <img src={{pharmaci?.image}} class="avatar" alt="">
+                      {{pharmaci?.nomprenom}} </td>
+                    <td>{{pharmaci?.adresse}}</td>
+                    <td>{{pharmaci?.code}}</td>
+                    <td>{{pharmaci?.email}}</td>
+                    <td>
+                      <button type="button" class="btn btn-danger ml-3 mr-3 mt-3" data-toggle="modal" data-target="#deletePharmacyModal"
+                      class="btn btn-danger w-100"><i class="icon-cart-add mr-2"></i>
+                      Delete
+                      </button>
+                    </td>
+                    <div class="modal fade" id="deletePharmacyModal" tabindex="-1" role="dialog" aria-labelledby="deletePharmacyModalLabel" aria-hidden="true">
+                      <div class="modal-dialog" role="document">
+                        <div class="modal-content">
+                          <div class="modal-header">
+                            <h5 class="modal-title"><b>Delete</b></h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                              <span aria-hidden="true">&times;</span>
+                            </button>
+                          </div>
+                          <div class="modal-body">
+                            <p>Are you sure you wanna delete   this pharmacy <b>{{pharmaci?.nomprenom}}</b>   ?</p>
+                          </div>
+                          <div class="modal-footer">
+                            <button type="button" class="btn btn-primary" data-dismiss="modal" (click)="removePharmacy(pharmaci?._id)">Confirm</button>
+                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                </tr>
+             </tbody>
+
+      </table>
+  </div>
+
+</div>
+

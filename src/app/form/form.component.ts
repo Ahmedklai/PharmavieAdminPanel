@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { IDropdownSettings } from 'ng-multiselect-dropdown';
-import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
+import { PharmaciesService } from '../pharmacies.service';
 import { Pharmacie } from '../pharmacie';
 import { ProductService } from '../product-list/product-service.service';
 
@@ -30,7 +30,7 @@ export class FormComponent implements OnInit {
       allowSearchFilter: true
     };
 
-     this.pharmaciesService.getProducts().subscribe((pharmacies) => {
+     this.pharmaciesService.getPharmacies().subscribe((pharmacies) => {
 
       this.pharmacies = pharmacies;
       this.dropDownlList = this.pharmacies.map((pharmacy,index)=>{
@@ -39,14 +39,15 @@ export class FormComponent implements OnInit {
           'item_text':pharmacy.nomprenom
         }
       });
-      console.log(this.pharmacies);
+
     });
   }
-  onItemSelect(item: Pharmacie) {
-    this.chosenPharmacies.push(item);
+  onItemSelect(item) {
+    this.chosenPharmacies.push(this.pharmacies[item['item_id']]);
+    console.log("chosen pharmacies   ===== > ",this.chosenPharmacies);
   }
   onSelectAll(items: any) {
-    console.log(items);
+    this.chosenPharmacies = this.pharmacies;
   }
 //   addPharmacie(pharmacie :Pharmacie , value : boolean ) {
 //   value ?
@@ -66,10 +67,11 @@ export class FormComponent implements OnInit {
 
 
   addProduct(AddFormulaire: NgForm): void {
-    console.log(AddFormulaire.value);
-    AddFormulaire.value['pharmacies'] = this.chosenPharmacies;
 
-    console.log(AddFormulaire.value);
+    AddFormulaire.value['pharmacies'] = this.chosenPharmacies;
+    console.log("🚀 ~ file: form.component.ts ~ line 71 ~ FormComponent ~ addProduct ~ AddFormulaire.value['pharmacies']", AddFormulaire.value['pharmacies'])
+
+
     this.productService.addProduct(AddFormulaire.value).subscribe(
       (response) => {
         const link = ['home/productList'];

@@ -11,12 +11,9 @@ export class NavBarComponent implements OnInit {
     private RegisterService: RegisterService,
   ) { }
   ngOnInit(): void {
-    
+
   }
   logout () {
-  
-      
       this.RegisterService.Logout() ;
-        
 
 }}
