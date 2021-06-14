@@ -7,6 +7,7 @@ import { RegisterComponent } from './Register/register.component';
 import { ProductListComponent } from './product-list/product-list.component';
 import { LoginComponent } from './login/login.component';
 import { AuthGuardService } from '../app/auth-guard.service';
+import { AddPharmacyComponent } from './add-pharmacy/add-pharmacy.component';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent, canActivate: [AuthGuardService] },
@@ -19,6 +20,8 @@ const routes: Routes = [
       { path: 'form', component: FormComponent },
       { path: 'productList', component: ProductListComponent },
       { path: 'app-form-update/:id', component: FormUpdateComponent },
+      { path: 'add-pharmacy', component: AddPharmacyComponent },
+      { path: 'update-pharmacy/:id', component: FormUpdateComponent },
     ],
   },
 ];

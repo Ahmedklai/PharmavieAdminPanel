@@ -1,65 +1,43 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
-import { IDropdownSettings } from 'ng-multiselect-dropdown';
 import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
 import { Pharmacie } from '../pharmacie';
 import { ProductService } from '../product-list/product-service.service';
 
 @Component({
-  selector: 'app-form',
-  templateUrl: './form.component.html',
-  styleUrls: ['./form.component.scss'],
+  selector: 'app-add-pharmacy',
+  templateUrl: './add-pharmacy.component.html',
+  styleUrls: ['./add-pharmacy.component.scss'],
 })
-export class FormComponent implements OnInit {
+export class AddPharmacyComponent implements OnInit {
   constructor(private productService: ProductService, private router: Router , private pharmaciesService : PharmaciesService) {}
   isPromotion: boolean;
   pharmacies: Pharmacie[];
-  dropDownlList = [];
-  dropdownSettings : IDropdownSettings = {};
-  chosenPharmacies :Pharmacie[] = [];
+  chosenPharmacies: Pharmacie[] = [];
   AddFormulaire: NgForm ;
   ngOnInit(): void {
-    this.dropdownSettings = {
-      singleSelection: false,
-      idField: 'item_id',
-      textField: 'item_text',
-      selectAllText: 'Select All',
-      unSelectAllText: 'UnSelect All',
-      itemsShowLimit: 3,
-      allowSearchFilter: true
-    };
+
 
      this.pharmaciesService.getProducts().subscribe((pharmacies) => {
 
       this.pharmacies = pharmacies;
-      this.dropDownlList = this.pharmacies.map((pharmacy,index)=>{
-        return {
-          'item_id': index,
-          'item_text':pharmacy.nomprenom
-        }
-      });
       console.log(this.pharmacies);
     });
   }
-  onItemSelect(item: Pharmacie) {
-    this.chosenPharmacies.push(item);
-  }
-  onSelectAll(items: any) {
-    console.log(items);
-  }
-//   addPharmacie(pharmacie :Pharmacie , value : boolean ) {
-//   value ?
-//    this.chosenPharmacies.push(pharmacie)  :
-//    this.chosenPharmacies = this.arrayRemove(this.chosenPharmacies , pharmacie );
 
-//   }
-//    arrayRemove(arr, value) {
+  addPharmacie(pharmacie :Pharmacie , value : boolean ) {
+  value ?
+   this.chosenPharmacies.push(pharmacie)  :
+   this.chosenPharmacies = this.arrayRemove(this.chosenPharmacies , pharmacie );
 
-//     return arr.filter(function(ele){
-//         return ele != value;
-//     });
-// }
+  }
+   arrayRemove(arr, value) {
+
+    return arr.filter(function(ele){
+        return ele != value;
+    });
+}
 
   isBestSelling: boolean = false;
   imageSrc: string = 'https://www.cyclooil.com/images/default_product.png';
@@ -81,3 +59,4 @@ export class FormComponent implements OnInit {
     );
   }
 }
+
