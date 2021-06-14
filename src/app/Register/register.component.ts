@@ -2,8 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { RegisterService } from '../auth.service';
-
 @Component({
+
   selector: 'register',
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.scss']
