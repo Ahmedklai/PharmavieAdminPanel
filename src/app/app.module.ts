@@ -18,6 +18,8 @@ import { AuthGuardService } from './auth-guard.service';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { NgxPaginationModule } from 'ngx-pagination';
 import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
+import { AddPharmacyComponent } from './add-pharmacy/add-pharmacy.component';
+import { NgMultiSelectDropDownModule } from 'ng-multiselect-dropdown';
 
 @NgModule({
   declarations: [
@@ -30,18 +32,19 @@ import { PharmaciesService } from 'src/pharmacies/pharmacies.service';
     RegisterComponent,
     FormUpdateComponent,
     HomeComponent,
-    LoginComponent, 
-    
-  ],
+    LoginComponent,
+      AddPharmacyComponent
+   ],
   imports: [
-        FormsModule,                               // <========== Add this line!
+    FormsModule,
+    NgMultiSelectDropDownModule.forRoot(),                               // <========== Add this line!
     ReactiveFormsModule  ,
     BrowserModule,
-    AppRoutingModule, 
+    AppRoutingModule,
     HttpClientModule ,
-    Ng2SearchPipeModule , 
+    Ng2SearchPipeModule ,
     NgxPaginationModule
-     
+
   ],
   providers: [AuthGuardService , PharmaciesService],
   bootstrap: [AppComponent]
