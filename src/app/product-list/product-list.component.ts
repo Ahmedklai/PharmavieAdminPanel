@@ -9,11 +9,14 @@ import { ProductService } from './product-service.service';
 })
 export class ProductListComponent implements OnInit {
   products: Product[];
+  selectedProduct : Product;
   name: String;
   p: Number;
   @Input() product: Product;
   constructor(private productservice: ProductService) {}
-
+  selectProduct(product:Product){
+    this.selectedProduct = product;
+  }
   ngOnInit(): void {
     this.productservice.getProducts().subscribe((products) => {
       console.log(products);
@@ -37,9 +40,9 @@ export class ProductListComponent implements OnInit {
   goToUpdate(id) {
     this.productservice.goToUpdate(id);
   }
-  removeproduct(id: String): void {
-    console.log(id);
-    this.productservice.removeProduct(id).subscribe(
+  removeproduct(): void {
+
+    this.productservice.removeProduct(this.selectedProduct.id).subscribe(
       (response) => {
         console.log(response);
         window.location.reload();

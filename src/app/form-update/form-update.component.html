@@ -17,7 +17,7 @@
           <label for="name">Name</label>
           <input
 
-          [(ngModel)]="product.name" name='name' #name="ngModel" id= "name" type="text" class="form-control">
+          [(ngModel)]="!product ? '' :product.name" name='name' #name="ngModel" id= "name" type="text" class="form-control">
 
 
        </div>
@@ -25,14 +25,14 @@
         <label for="conditioning">Conditioning</label>
         <input
 
-        [(ngModel)]="product.conditioning" name='conditioning' #conditioning="ngModel" id= "conditioning" type="text" class="form-control">
+        [(ngModel)]="!product ? '' :product.conditioning" name='conditioning' #conditioning="ngModel" id= "conditioning" type="text" class="form-control">
 
        </div>
         <div class="form-group">
           <label for="rating">enter rating from 0 - 5</label>
           <input
 
-          [(ngModel)]="product.rating" name='rating' #rating="ngModel" id= "rating" type="number" class="form-control" min="0" max="5">
+          [(ngModel)]="!product ? '' :product.rating" name='rating' #rating="ngModel" id= "rating" type="number" class="form-control" min="0" max="5">
 
      </div>
 
@@ -41,7 +41,7 @@
           <label for="laboratory">Laboratory</label>
           <input
 
-          [(ngModel)]="product.laboratory" name='laboratory' #laboratory="ngModel" id= "laboratory" type="text" class="form-control">
+          [(ngModel)]="!product ? '' :product.laboratory" name='laboratory' #laboratory="ngModel" id= "laboratory" type="text" class="form-control">
 
 
        </div>
@@ -50,7 +50,7 @@
           <input
            name="form"
 
-          [(ngModel)]="product.form" #form="ngModel" id= "form" type="text" class="form-control">
+          [(ngModel)]="!product ? '' :product.form" #form="ngModel" id= "form" type="text" class="form-control">
 
 
        </div>
@@ -60,8 +60,10 @@
        [placeholder]="'Chose pharmacies'"
        [settings]="dropdownSettings"
        [data]="dropDownlList"
-       [ngModel]="initialPharmacies"
+       [(ngModel)]="!product ? [] : initialPharmacies"
        (onSelect)="onItemSelect($event)"
+       (onDeSelect)="onDeselect($event)"
+       (onDeSelectAll)="onDeselectAll($event)"
        (onSelectAll)="onSelectAll($event)"
      >
      </ng-multiselect-dropdown>
@@ -70,7 +72,7 @@
            <label for="description">Description</label>
            <textarea
 
-           [(ngModel)]="product.description" name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="5" >
+           [(ngModel)]="!product ? '' :product.description" name='description' #description="ngModel"  type="text" class="form-control" id="description" cols="30" rows="5" >
 
 
 
@@ -82,31 +84,31 @@
         <label for="presentation">Presentation</label>
         <input
 
-        [(ngModel)]="product.presentation" name='presentation' #presentation="ngModel" id= "presentation" type="text" class="form-control">
+        [(ngModel)]="!product ? '' :product.presentation" name='presentation' #presentation="ngModel" id= "presentation" type="text" class="form-control">
 
        </div>
         <div class="form-group">
           <label for="specification">Specification</label>
           <input
 
-          [(ngModel)]="product.specification" name='specification' #specification="ngModel" id= "specification" type="text" class="form-control">
+          [(ngModel)]="!product ? '' :product.specification" name='specification' #specification="ngModel" id= "specification" type="text" class="form-control">
           </div>
           <div class="form-group">
             <label for="DurationOfConversation">DurationOfConversation</label>
             <input
 
-            [(ngModel)]="product.DurationOfConversation" name='DurationOfConversation' #DurationOfConversation="ngModel" id= "DurationOfConversation" type="text" class="form-control">
+            [(ngModel)]="!product ? '' :product.DurationOfConversation" name='DurationOfConversation' #DurationOfConversation="ngModel" id= "DurationOfConversation" type="text" class="form-control">
            </div>
       <div class="form-group">
           <label for="path">Image Path</label>
-          <input   [(ngModel)]="product.path" name='path' id= "path" type="text" class="form-control">
+          <input   [(ngModel)]="!product ? '' :product.path" name='path' id= "path" type="text" class="form-control">
 
-          <img class="img-thumbnail m-2" [src]="product.path" alt="" >
+          <img class="img-thumbnail m-2" [src]="!product ? '' : product.path" alt="" >
        </div>
 
        <div class="form-group">
            <label for="publicPrice">Public Price</label>
-           <input  [(ngModel)]="product.publicPrice" name='publicPrice' id="publicPrice" type="number" class="form-control">
+           <input  [(ngModel)]="!product ? '' :product.publicPrice" name='publicPrice' id="publicPrice" type="number" class="form-control">
 
 
        </div>
@@ -114,20 +116,20 @@
       <div class="form-check">
         <label class="form-check-label">
           <input ng-model="template.disabled"
-          ng-init="template.disabled=false" [(ngModel)]="product.isPromotion" type="checkbox" class="form-check-input" name="isPromotion" id="isPromotion" value="isPromotion">
+          ng-init="template.disabled=false" [(ngModel)]="!product ? '' :product.isPromotion" type="checkbox" class="form-check-input" name="isPromotion" id="isPromotion" value="isPromotion">
           is promotion !
         </label>
       </div>
       <br/>
-      <div *ngIf="product.isPromotion" class="form-group">
+      <div *ngIf="!product ? false :product.isPromotion" class="form-group">
           <label for="publicPrice">New Price</label>
-          <input   [(ngModel)]="product.newPrice" name='newPrice' id="newPrice" type="number" class="form-control">
+          <input   [(ngModel)]="!product ? '' :product.newPrice" name='newPrice' id="newPrice" type="number" class="form-control">
       </div>
       <br/>
       <div class="form-check">
           <label class="form-check-label">
             <input ng-model="template.disabled"
-            ng-init="template.disabled=false" [(ngModel)]="product.isBestSelling"  type="checkbox" class="form-check-input" name="isBestSelling" id="isBestSelling" value="isBestSelling">
+            ng-init="template.disabled=false" [(ngModel)]="!product ? '' :product.isBestSelling"  type="checkbox" class="form-check-input" name="isBestSelling" id="isBestSelling" value="isBestSelling">
             is best selling !
           </label>
         </div>

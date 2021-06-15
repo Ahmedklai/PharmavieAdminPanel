@@ -1,5 +1,5 @@
 export class Pharmacie {
-    id: string;
+    _id: string;
     nomprenom: string;
     code: string;
     gouvernorat: string;

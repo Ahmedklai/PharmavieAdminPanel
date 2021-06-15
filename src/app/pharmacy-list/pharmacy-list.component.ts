@@ -11,10 +11,14 @@ import { Product } from '../product';
 })
 export class PharmacyListComponent implements OnInit {
   pharmacies: Pharmacie[];
+  selectedPharmacy : Pharmacie;
   name: String;
   p: Number;
   @Input() product: Product;
   constructor(private pharmaciesService: PharmaciesService) {}
+  selectPharmacy(pharmacy:Pharmacie){
+   this.selectedPharmacy = pharmacy;
+  }
 
   ngOnInit(): void {
     this.pharmaciesService.getPharmacies().subscribe((pharmacies) => {
@@ -39,9 +43,9 @@ export class PharmacyListComponent implements OnInit {
   goToUpdate(id:string) {
     this.pharmaciesService.goToUpdate(id);
   }
-  removePharmacy(id: string): void {
-    console.log(id);
-    this.pharmaciesService.removePharmacy(id).subscribe(
+  removePharmacy(): void {
+    console.log(this.selectedPharmacy);
+    this.pharmaciesService.removePharmacy(this.selectedPharmacy._id).subscribe(
       (response) => {
         console.log(response);
         window.location.reload();

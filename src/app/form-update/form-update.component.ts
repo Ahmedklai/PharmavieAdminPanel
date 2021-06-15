@@ -22,7 +22,7 @@ export class FormUpdateComponent implements OnInit {
     private activatedroute:ActivatedRoute,
   ) { }
   id : String;
-  product : Product;
+  product : Product  ;
   isPromotion: boolean;
   pharmacies: Pharmacie[];
   dropDownlList = [];
@@ -32,10 +32,17 @@ export class FormUpdateComponent implements OnInit {
   initialPharmacies:[];
   onItemSelect(item) {
     this.chosenPharmacies.push(this.pharmacies[item['item_id']]);
-    console.log("chosen pharmacies   ===== > ",this.chosenPharmacies);
+    console.log("chosen pharmacies  item select  ===== > ",this.chosenPharmacies);
   }
   onSelectAll(items: any) {
     this.chosenPharmacies = this.pharmacies;
+  }
+  onDeselect(item) {
+    this.chosenPharmacies.splice(this.chosenPharmacies.indexOf(this.pharmacies[item['item_id']]),1);
+    console.log("chosen pharmacies after deselect  ===== > ",this.chosenPharmacies);
+  }
+  onDeselectAll(items: any) {
+    this.chosenPharmacies = [];
   }
   ngOnInit(): void {
     this.dropdownSettings = {
@@ -49,7 +56,6 @@ export class FormUpdateComponent implements OnInit {
     };
 
      this.pharmaciesService.getPharmacies().subscribe((pharmacies) => {
-
       this.pharmacies = pharmacies;
       this.dropDownlList = this.pharmacies.map((pharmacy,index)=>{
         return {
@@ -76,6 +82,7 @@ export class FormUpdateComponent implements OnInit {
            'item_id':index,
            'item_text':pharmacy.nomprenom
         }));
+        console.log(this.initialPharmacies);
       },
       (error) => {
         console.log(error);
