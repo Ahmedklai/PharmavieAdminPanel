@@ -90,7 +90,8 @@ export class FormUpdateComponent implements OnInit {
     )
    }
   updateProduct(updateFormulaire: NgForm): void {
-     let product  = { ...updateFormulaire.value, id: this.id};
+
+     let product  = { ...updateFormulaire.value,pharmacies:this.chosenPharmacies, id: this.id};
 
     this.productService.updateProduct(product).subscribe(
       (response) => {
