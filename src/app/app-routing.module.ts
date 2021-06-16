@@ -11,6 +11,7 @@ import { AddPharmacyComponent } from './add-pharmacy/add-pharmacy.component';
 import { PharmacyListComponent } from './pharmacy-list/pharmacy-list.component';
 import { UpdatePharmacyComponent } from './update-pharmacy/update-pharmacy.component';
 import { PercentPipe } from '@angular/common';
+import { OrdersListComponent } from './orders-list/orders-list.component';
 
 const routes: Routes = [
   { path: '', component: RegisterComponent, canActivate: [AuthGuardService] },
@@ -26,6 +27,7 @@ const routes: Routes = [
       { path: 'app-form-update/:id', component: FormUpdateComponent },
       { path: 'add-pharmacy', component: AddPharmacyComponent },
       { path: 'update-pharmacy/:id', component: UpdatePharmacyComponent },
+      {path:'orders-list',component:OrdersListComponent}
     ],
   },
 ];

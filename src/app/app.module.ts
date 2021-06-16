@@ -24,10 +24,11 @@ import { UpdatePharmacyComponent } from './update-pharmacy/update-pharmacy.compo
 import { PercentPipe } from './percent.pipe';
 import { PercentModule } from './percent.module';
 import { PharmaciesService } from './pharmacies.service';
+import { OrdersListComponent } from './orders-list/orders-list.component';
 
 
 @NgModule({
-  declarations: [
+  declarations: [	
     AppComponent,
     NavBarComponent,
     FormComponent,
@@ -42,7 +43,8 @@ import { PharmaciesService } from './pharmacies.service';
       AddPharmacyComponent,
       PharmacyListComponent,
 
-      UpdatePharmacyComponent
+      UpdatePharmacyComponent,
+      OrdersListComponent
    ],
   imports: [
     PercentModule,
