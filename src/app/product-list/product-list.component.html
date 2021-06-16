@@ -68,7 +68,7 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr mbTableCol *ngFor="let myProduct of products | paginate :{itemsPerPage:8 , currentPage:p};">
+                    <tr mbTableCol *ngFor="let myProduct of products">
                       <th  (click)="goToUpdate(myProduct?.id) "> <img src={{myProduct?.path}} class="avatar" alt=""> {{myProduct?.name}} </th>
                       <td>--</td>
                       <td>{{myProduct?.createdAt | date}}</td>

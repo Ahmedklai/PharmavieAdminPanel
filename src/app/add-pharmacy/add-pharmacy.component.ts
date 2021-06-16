@@ -16,9 +16,6 @@ export class AddPharmacyComponent {
   AddFormulaire: NgForm ;
   imageSrc: string = 'https://www.cyclooil.com/images/default_product.png';
   addPharmacy(AddFormulaire: NgForm): void {
-    // console.log(AddFormulaire.value);
-    AddFormulaire.value['latitude'] = '34.6113892';
-    AddFormulaire.value['longitude'] = '8.7590835';
     AddFormulaire.value['image']= AddFormulaire.value['image'] == null ?
      this.imageSrc :
      AddFormulaire.value['image'];

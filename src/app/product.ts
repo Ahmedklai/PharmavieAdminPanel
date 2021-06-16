@@ -24,6 +24,7 @@ export class Product {
   // tableOfContent: {vitamine:string,percentage:string}[];
   contreIndication:string;
   superClass:string;
+  category : string ; 
 
   pharmacies : string[];
   constructor(
@@ -47,6 +48,7 @@ export class Product {
     publicPrice: number,
     use: string,
     path: string,
+    category : string , 
     // contreIndications: string,
     // tableOfContent: {vitamine:string,percentage:string}[] ,
     pharmacies: string[],
@@ -74,5 +76,6 @@ export class Product {
     // this.contreIndications = contreIndications;
     // this.tableOfContent = tableOfContent;
     this.pharmacies = pharmacies;
+    this.category = category ; 
   }
 }

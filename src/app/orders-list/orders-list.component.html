@@ -22,7 +22,7 @@
                   </tr>
               </thead>
               <tbody>
-                  <tr mbTableCol *ngFor="let order of orders | paginate :{itemsPerPage:8 , currentPage:p};">
+                  <tr mbTableCol *ngFor="let order of orders">
                     <td>{{order?.createdAt | date }}</td>
                     <td>{{order?.user?.userName}}</td>
                      <td>{{order?.products?.length}}</td>
@@ -60,7 +60,7 @@
               </tr>
           </thead>
           <tbody>
-              <tr mbTableCol *ngFor="let order of selectedOrder?.products | paginate :{itemsPerPage:8 , currentPage:p};">
+              <tr mbTableCol *ngFor="let order of selectedOrder?.products">
                 <th  (click)="goToUpdate(order?.id) "> <img src={{order?.path}} class="avatar" alt=""> {{order?.name}} </th>
                 <td>--</td>
                 <td>{{order?.createdAt | date}}</td>
